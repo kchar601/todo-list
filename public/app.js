@@ -8,7 +8,11 @@ function renderTasks(tasks) {
   tasks.forEach((task) => {
     const listItem = document.createElement("li");
     listItem.textContent = task.text;
-    listItem.classList.add(task.completed ? "completed" : "");
+
+    // Attempting to add the "completed" class if task is completed
+    if (task.completed) {
+      listItem.classList.add("completed"); // Make sure "completed" is defined and not empty
+    }
 
     // Complete Task Button
     const completeButton = document.createElement("button");
@@ -30,6 +34,8 @@ function renderTasks(tasks) {
 let tasks = []; // This will store tasks in-memory (for now)
 
 function addTask(taskText) {
+  if (!taskText) return; // Make sure taskText is not empty
+
   const newTask = { id: Date.now(), text: taskText, completed: false };
   tasks.push(newTask);
   renderTasks(tasks);
