@@ -1,0 +1,42 @@
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 36px;
+  z-index: 1000;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-content form :not(button) {
+  grid-column: 1 / 3;
+}
+
+.modal-content form *:not(button) {
+  margin-bottom: 8px;
+}
+
+.modal-content form label {
+  font-size: 24px;
+}
+
+.modal-content form input {
+  width: calc(100% - 24px);
+}
